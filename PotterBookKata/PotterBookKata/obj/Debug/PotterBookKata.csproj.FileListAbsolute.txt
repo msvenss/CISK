@@ -1,0 +1,5 @@
+C:\dev\CISK\PotterBookKata\PotterBookKata\bin\Debug\PotterBookKata.dll
+C:\dev\CISK\PotterBookKata\PotterBookKata\bin\Debug\PotterBookKata.pdb
+C:\dev\CISK\PotterBookKata\PotterBookKata\obj\Debug\PotterBookKata.dll
+C:\dev\CISK\PotterBookKata\PotterBookKata\obj\Debug\PotterBookKata.pdb
+C:\dev\CISK\PotterBookKata\PotterBookKata\obj\Debug\PotterBookKata.csprojResolveAssemblyReference.cache

@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PotterBookKata
+namespace HPBookKata
 {
-    public class Class1
+    public interface IBook
     {
+        int PriceEUR { get; set; }
+        string Title { get; set; }
+   
     }
 }

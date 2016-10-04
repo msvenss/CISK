@@ -1,0 +1,15 @@
+C:\dev\CISK\PotterBookKata\PotterBookKata.Tests\bin\Debug\PotterBookKata.Tests.dll
+C:\dev\CISK\PotterBookKata\PotterBookKata.Tests\bin\Debug\PotterBookKata.Tests.pdb
+C:\dev\CISK\PotterBookKata\PotterBookKata.Tests\bin\Debug\FluentAssertions.Core.dll
+C:\dev\CISK\PotterBookKata\PotterBookKata.Tests\bin\Debug\FluentAssertions.dll
+C:\dev\CISK\PotterBookKata\PotterBookKata.Tests\bin\Debug\nunit.framework.dll
+C:\dev\CISK\PotterBookKata\PotterBookKata.Tests\bin\Debug\PotterBookKata.dll
+C:\dev\CISK\PotterBookKata\PotterBookKata.Tests\bin\Debug\PotterBookKata.pdb
+C:\dev\CISK\PotterBookKata\PotterBookKata.Tests\bin\Debug\FluentAssertions.pdb
+C:\dev\CISK\PotterBookKata\PotterBookKata.Tests\bin\Debug\FluentAssertions.xml
+C:\dev\CISK\PotterBookKata\PotterBookKata.Tests\bin\Debug\FluentAssertions.Core.pdb
+C:\dev\CISK\PotterBookKata\PotterBookKata.Tests\bin\Debug\FluentAssertions.Core.xml
+C:\dev\CISK\PotterBookKata\PotterBookKata.Tests\bin\Debug\nunit.framework.xml
+C:\dev\CISK\PotterBookKata\PotterBookKata.Tests\obj\Debug\PotterBookKata.Tests.csprojResolveAssemblyReference.cache
+C:\dev\CISK\PotterBookKata\PotterBookKata.Tests\obj\Debug\PotterBookKata.Tests.dll
+C:\dev\CISK\PotterBookKata\PotterBookKata.Tests\obj\Debug\PotterBookKata.Tests.pdb

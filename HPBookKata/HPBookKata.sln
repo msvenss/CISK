@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPBookKata", "HPBookKata.csproj", "{4A55C879-BDB0-4C90-9EAC-DF591529CD43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPBookKata.Tests", "..\HPBookKata.Tests\HPBookKata.Tests.csproj", "{A71209F7-9259-4BC5-A99A-006C1488F098}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A55C879-BDB0-4C90-9EAC-DF591529CD43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A55C879-BDB0-4C90-9EAC-DF591529CD43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A55C879-BDB0-4C90-9EAC-DF591529CD43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A55C879-BDB0-4C90-9EAC-DF591529CD43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A71209F7-9259-4BC5-A99A-006C1488F098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A71209F7-9259-4BC5-A99A-006C1488F098}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A71209F7-9259-4BC5-A99A-006C1488F098}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A71209F7-9259-4BC5-A99A-006C1488F098}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
