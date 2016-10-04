@@ -43,6 +43,8 @@
     <Compile Include="Book.cs" />
     <Compile Include="Calculator\DiscountCalculator.cs" />
     <Compile Include="Calculator\IDiscountCalculator.cs" />
+    <Compile Include="DiscountRules\DiscountRuleFiveDifferentBooks.cs" />
+    <Compile Include="DiscountRules\DiscountRuleFourDifferentBooks.cs" />
     <Compile Include="DiscountRules\DiscountRuleThreeDifferentBooks.cs" />
     <Compile Include="DiscountRules\DiscountRuleTwoDifferentBooks.cs" />
     <Compile Include="DiscountRules\IDiscountRule.cs" />

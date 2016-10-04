@@ -35,7 +35,7 @@ namespace HPBookKata.Calculator
                     amount += checkDiscountList.First().ItemToBuy.PriceEUR * itemsWithOriginalPrice;
                     amount += (checkDiscountList.First().ItemToBuy.PriceEUR * (firstItemCount - itemsWithOriginalPrice)) * (1 - _discountRule.DiscountPercent);
                   //  var test = 1 - _discountRule.DiscountPercent;
-                    amount += checkDiscountList.Skip(1).First().ItemToBuy.PriceEUR * (1 - _discountRule.DiscountPercent);
+                   amount += checkDiscountList.Skip(1).First().ItemToBuy.PriceEUR * (1 - _discountRule.DiscountPercent);
                     checkDiscountList.RemoveRange(0, 2);
                     if (checkDiscountList.Count == 1)
                     {
