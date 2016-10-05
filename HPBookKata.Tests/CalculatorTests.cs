@@ -44,6 +44,7 @@ namespace HPBookKata.Tests
             _allDiscountRules = new List<IDiscountRule> {_discountRuleFive,_discountRuleFour, _discountRuleThree, _discountRuleTwo}.OrderBy(x => x.Order);
             _itemListWithDuplicates= new List<PurchaseItem> {new PurchaseItem(_bookOne,1), new PurchaseItem(_bookOne,1),new PurchaseItem(_bookTwo,1)};
             _itemListWithDuplicates2 = new List<PurchaseItem> { new PurchaseItem(_bookOne, 1), new PurchaseItem(_bookOne, 1), new PurchaseItem(_bookTwo, 1), new PurchaseItem(_bookFour, 1), new PurchaseItem(_bookTwo, 1), new PurchaseItem(_bookTwo, 1) };
+
         }
 
        

@@ -2,3 +2,4 @@ C:\dev\CISK\HPBookKata\bin\Debug\HPBookKata.dll
 C:\dev\CISK\HPBookKata\bin\Debug\HPBookKata.pdb
 C:\dev\CISK\HPBookKata\obj\Debug\HPBookKata.dll
 C:\dev\CISK\HPBookKata\obj\Debug\HPBookKata.pdb
+C:\dev\CISK\HPBookKata\obj\Debug\HPBookKata.csprojResolveAssemblyReference.cache

@@ -1,0 +1,5 @@
+C:\dev\CISK\HPKata\bin\Debug\HPKata.dll
+C:\dev\CISK\HPKata\bin\Debug\HPKata.pdb
+C:\dev\CISK\HPKata\obj\Debug\HPKata.dll
+C:\dev\CISK\HPKata\obj\Debug\HPKata.pdb
+C:\dev\CISK\HPKata\obj\Debug\HPKata.csprojResolveAssemblyReference.cache
