@@ -7,13 +7,17 @@ using HPKata.DiscountRules;
 
 namespace HPKata.Calculator
 {
-    public class DiscountCalculator :ICalculator
+    public class DiscountCalculator : ICalculator
     {
-        public decimal CalculatedAmount { get { return Calculate(_purchase, _rules); } }
+        public decimal CalculatedAmount
+        {
+            get { return Calculate(_purchase, _rules); }
+        }
+
         private Purchase _purchase;
         private IEnumerable<IDiscountRule> _rules;
 
-        public DiscountCalculator(Purchase purchase, IEnumerable<IDiscountRule> rules )
+        public DiscountCalculator(Purchase purchase, IEnumerable<IDiscountRule> rules)
         {
             _purchase = purchase;
             _rules = rules;
@@ -27,7 +31,6 @@ namespace HPKata.Calculator
 
             while (listHasItems)
             {
- 
                 IDiscountRule currentDiscountRule =
                     rules.First(r => r.CanBeUsed(new Purchase(checkDiscountList)));
                 var nrOfItemsFirstItemRowComparer = checkDiscountList.First().NrOfItems;
@@ -37,7 +40,8 @@ namespace HPKata.Calculator
                 try
                 {
                     indexOfLastElementWithSameNumber =
-                        checkDiscountList.IndexOf(checkDiscountList.Skip(1).Last(i => i.NrOfItems == nrOfItemsFirstItemRowComparer));
+                        checkDiscountList.IndexOf(
+                            checkDiscountList.Skip(1).Last(i => i.NrOfItems == nrOfItemsFirstItemRowComparer));
                 }
                 catch (Exception)
                 {
@@ -45,7 +49,8 @@ namespace HPKata.Calculator
                 }
                 if (checkDiscountList.Count > (indexOfLastElementWithSameNumber + 1))
                 {
-                    nextAmountOfItemsChecker = checkDiscountList.ElementAt(indexOfLastElementWithSameNumber + 1).NrOfItems;
+                    nextAmountOfItemsChecker =
+                        checkDiscountList.ElementAt(indexOfLastElementWithSameNumber + 1).NrOfItems;
                 }
 
                 if (indexOfLastElementWithSameNumber > 0)
@@ -54,28 +59,24 @@ namespace HPKata.Calculator
                     for (int i = 0; i <= indexOfLastElementWithSameNumber; i++)
                     {
                         tempListForCheckCurrentRule.Add(checkDiscountList.ElementAt(i));
-                     }
+                    }
 
                     currentDiscountRule =
-                   rules.First(r => r.CanBeUsed(new Purchase(tempListForCheckCurrentRule)));
+                        rules.First(r => r.CanBeUsed(new Purchase(tempListForCheckCurrentRule)));
                     for (int i = 0; i <= indexOfLastElementWithSameNumber; i++)
                     {
                         var itemPrice = checkDiscountList.ElementAt(i).ItemToBuy.PriceEUR;
-                        amount += itemPrice * (1 - currentDiscountRule.DiscountPercent);
+                        amount += itemPrice*(1 - currentDiscountRule.DiscountPercent);
                         checkDiscountList.ElementAt(i).NrOfItems -= 1;
                     }
                     checkDiscountList.RemoveAll(x => x.NrOfItems == 0);
-                    //   checkDiscountList.RemoveRange(0, indexOfLastElementWithSameNumber + 1); // Jo, den ska va här /kan va
                 }
 
                 else if (indexOfLastElementWithSameNumber == 0)
                 {
                     var itemPrice = checkDiscountList.ElementAt(0).ItemToBuy.PriceEUR;
                     var itemsWithOriginalPrice = checkDiscountList.ElementAt(0).NrOfItems - nextAmountOfItemsChecker;
-                    amount += itemsWithOriginalPrice * itemPrice;
-                    // amount += itemPrice*(1 - currentDiscountRule.DiscountPercent);
-                    ///     nrOfItemsFirstItemRowComparer = checkDiscountList.ElementAt(0).NrOfItems; //
-                    //  checkDiscountList.RemoveAt(0);
+                    amount += itemsWithOriginalPrice*itemPrice;
                     checkDiscountList.ElementAt(0).NrOfItems -= itemsWithOriginalPrice;
                 }
                 if (checkDiscountList.Count == 0)
@@ -86,7 +87,5 @@ namespace HPKata.Calculator
             }
             return amount;
         }
-
-
     }
 }
