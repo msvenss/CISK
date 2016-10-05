@@ -10,5 +10,6 @@ namespace HPBookKata.DiscountRules
     {
         decimal DiscountPercent { get; }
         bool CanBeUsed(Purchase purchase);
+        int Order { get; }
     }
 }

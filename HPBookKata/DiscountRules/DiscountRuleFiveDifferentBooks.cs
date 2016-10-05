@@ -13,5 +13,7 @@ namespace HPBookKata.DiscountRules
         {
             return purchase.ItemRows.Count() >= 5;
         }
+
+        public int Order => 10;
     }
 }

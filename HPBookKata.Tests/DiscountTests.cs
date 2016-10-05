@@ -25,6 +25,7 @@ namespace HPBookKata.Tests
         private DiscountRuleThreeDifferentBooks _discountRuleThree;
         private DiscountRuleFourDifferentBooks _discountRuleFour;
         private DiscountRuleFiveDifferentBooks _discountRuleFive;
+        
 
 
         [SetUp]
@@ -35,6 +36,11 @@ namespace HPBookKata.Tests
             _bookThree = new Book("HP och fången från Azkaban");
             _bookFour = new Book("HP och den flammande bägaren");
             _bookFive = new Book("Hp och Fenixordern");
+            _discountRuleTwo = new DiscountRuleTwoDifferentBooks();
+            _discountRuleThree = new DiscountRuleThreeDifferentBooks();
+            _discountRuleFour= new DiscountRuleFourDifferentBooks();
+            _discountRuleFive =new DiscountRuleFiveDifferentBooks();
+           
         
         }
 
@@ -51,7 +57,7 @@ namespace HPBookKata.Tests
             var purchase =
                 new Purchase(new List<PurchaseItem> {new PurchaseItem(_bookFour, 1), new PurchaseItem(_bookFive, 1)});
            _discountRuleTwo = new DiscountRuleTwoDifferentBooks();;
-            _calculator= new DiscountCalculator(purchase, _discountRuleTwo);
+            _calculator= new DiscountCalculator(purchase,new List<IDiscountRule>{ _discountRuleTwo });
             _calculator.Calculate().Should().Be(15.2m);
         }
 
@@ -61,7 +67,7 @@ namespace HPBookKata.Tests
             var purchase =
             new Purchase(new List<PurchaseItem> { new PurchaseItem(_bookFour, 1), new PurchaseItem(_bookFive, 1), new PurchaseItem(_bookOne, 1) });
             _discountRuleThree = new DiscountRuleThreeDifferentBooks(); 
-            _calculator = new DiscountCalculator(purchase, _discountRuleThree);
+            _calculator = new DiscountCalculator(purchase, new List<IDiscountRule> { _discountRuleThree});
             _calculator.Calculate().Should().Be(21.6m);
         }
 
@@ -71,7 +77,7 @@ namespace HPBookKata.Tests
             var purchase =
             new Purchase(new List<PurchaseItem> { new PurchaseItem(_bookFour, 1), new PurchaseItem(_bookFive, 1), new PurchaseItem(_bookOne, 1), new PurchaseItem(_bookTwo, 1 ) });
             _discountRuleFour = new DiscountRuleFourDifferentBooks();
-            _calculator = new DiscountCalculator(purchase, _discountRuleFour);
+            _calculator = new DiscountCalculator(purchase, new List<IDiscountRule> { _discountRuleFour});
             _calculator.Calculate().Should().Be(25.6m);
         }
 
@@ -81,7 +87,7 @@ namespace HPBookKata.Tests
             var purchase =
             new Purchase(new List<PurchaseItem> { new PurchaseItem(_bookFour, 1), new PurchaseItem(_bookFive, 1), new PurchaseItem(_bookOne, 1), new PurchaseItem(_bookTwo, 1), new PurchaseItem(_bookThree,1) });
             _discountRuleFive = new DiscountRuleFiveDifferentBooks();
-            _calculator = new DiscountCalculator(purchase, _discountRuleFive);
+            _calculator = new DiscountCalculator(purchase, new List<IDiscountRule> { _discountRuleFive});
             _calculator.Calculate().Should().Be(30.0m);
         }
      

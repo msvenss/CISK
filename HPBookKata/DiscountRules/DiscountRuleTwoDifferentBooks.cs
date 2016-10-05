@@ -15,9 +15,7 @@ namespace HPBookKata.DiscountRules
             return purchase.ItemRows.Count() >= 2;
         }
 
-        public DiscountRuleTwoDifferentBooks()
-        {
-            
-        }
+        public int Order => 40;
+
     }
 }

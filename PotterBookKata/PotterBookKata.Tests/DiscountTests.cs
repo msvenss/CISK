@@ -67,7 +67,7 @@ namespace PotterBookKata.Tests
             _calculator = new DiscountCalculator();
             _calculator.Calculate(purchase).Should().Be(23.2m);
          }
-        // two different books should give 5percent discount
+
         //three different books should give 10percent discount
         //four different books should give 20percent discount
         // five different books should give 25percent discount
