@@ -8,10 +8,10 @@ namespace HPBookKata
 {
     public class PurchaseItem
     {
-        public Book ItemToBuy { get; set; }
+        public IBook ItemToBuy { get; set; }
         public int NrOfItems { get; set; }
 
-        public PurchaseItem(Book itemToBuy, int nrOfItems)
+        public PurchaseItem(IBook itemToBuy, int nrOfItems)
         {
             ItemToBuy = itemToBuy;
             NrOfItems = nrOfItems;

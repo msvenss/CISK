@@ -23,6 +23,8 @@ namespace HPBookKata.Tests
         private DiscountRuleThreeDifferentBooks _discountRuleThree;
         private DiscountRuleFourDifferentBooks _discountRuleFour;
         private DiscountRuleFiveDifferentBooks _discountRuleFive;
+        private static IEnumerable<PurchaseItem> _itemListWithDuplicates;
+        private IEnumerable<PurchaseItem> _itemListWithDuplicates2;
 
         private IEnumerable<IDiscountRule> _allDiscountRules;
 
@@ -40,13 +42,16 @@ namespace HPBookKata.Tests
             _discountRuleFour = new DiscountRuleFourDifferentBooks();
             _discountRuleFive = new DiscountRuleFiveDifferentBooks();
             _allDiscountRules = new List<IDiscountRule> {_discountRuleFive,_discountRuleFour, _discountRuleThree, _discountRuleTwo}.OrderBy(x => x.Order);
+            _itemListWithDuplicates= new List<PurchaseItem> {new PurchaseItem(_bookOne,1), new PurchaseItem(_bookOne,1),new PurchaseItem(_bookTwo,1)};
+            _itemListWithDuplicates2 = new List<PurchaseItem> { new PurchaseItem(_bookOne, 1), new PurchaseItem(_bookOne, 1), new PurchaseItem(_bookTwo, 1), new PurchaseItem(_bookFour, 1), new PurchaseItem(_bookTwo, 1), new PurchaseItem(_bookTwo, 1) };
         }
 
+       
         [Test]
         public void Purchase_should_group_list_items()
         {
-
-            
+            var purchaseList = new Purchase(_itemListWithDuplicates2).ItemRows;
+            purchaseList.Count().Should().Be(2);
         }
 
     }
