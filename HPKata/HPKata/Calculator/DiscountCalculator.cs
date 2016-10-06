@@ -26,63 +26,35 @@ namespace HPKata.Calculator
         public decimal Calculate(Purchase purchase, IEnumerable<IDiscountRule> rules)
         {
             decimal amount = 0;
+
             List<PurchaseItem> checkDiscountList = purchase.ItemRows.OrderByDescending(ir => ir.NrOfItems).ToList();
             bool listHasItems = checkDiscountList.Count > 1;
-
             while (listHasItems)
             {
-                IDiscountRule currentDiscountRule =
-                    rules.First(r => r.CanBeUsed(new Purchase(checkDiscountList)));
-                var nrOfItemsFirstItemRowComparer = checkDiscountList.First().NrOfItems;
-
-                var indexOfLastElementWithSameNumber = 0;
-                var nextAmountOfItemsChecker = 0;
+                IDiscountRule currentDiscountRule;
                 try
                 {
-                    indexOfLastElementWithSameNumber =
-                        checkDiscountList.IndexOf(
-                            checkDiscountList.Skip(1).Last(i => i.NrOfItems == nrOfItemsFirstItemRowComparer));
+                    currentDiscountRule =
+                        rules.First(r => r.CanBeUsed(new Purchase(checkDiscountList)));
                 }
                 catch (Exception)
                 {
-                    indexOfLastElementWithSameNumber = 0;
-                }
-                if (checkDiscountList.Count > (indexOfLastElementWithSameNumber + 1))
-                {
-                    nextAmountOfItemsChecker =
-                        checkDiscountList.ElementAt(indexOfLastElementWithSameNumber + 1).NrOfItems;
+                    currentDiscountRule = new DiscountRuleNoDiscount();
                 }
 
-                if (indexOfLastElementWithSameNumber > 0)
+                foreach (var itemRow in checkDiscountList)
                 {
-                    List<PurchaseItem> tempListForCheckCurrentRule = new List<PurchaseItem>();
-                    for (int i = 0; i <= indexOfLastElementWithSameNumber; i++)
-                    {
-                        tempListForCheckCurrentRule.Add(checkDiscountList.ElementAt(i));
-                    }
-
-                    currentDiscountRule =
-                        rules.First(r => r.CanBeUsed(new Purchase(tempListForCheckCurrentRule)));
-                    for (int i = 0; i <= indexOfLastElementWithSameNumber; i++)
-                    {
-                        var itemPrice = checkDiscountList.ElementAt(i).ItemToBuy.PriceEUR;
-                        amount += itemPrice*(1 - currentDiscountRule.DiscountPercent);
-                        checkDiscountList.ElementAt(i).NrOfItems -= 1;
-                    }
+                    amount += itemRow.ItemToBuy.PriceEUR*(1 - currentDiscountRule.DiscountPercent);
+                    itemRow.NrOfItems -= 1;
+                }
+                if (checkDiscountList.Any(x => x.NrOfItems == 0))
+                {
                     checkDiscountList.RemoveAll(x => x.NrOfItems == 0);
                 }
 
-                else if (indexOfLastElementWithSameNumber == 0)
-                {
-                    var itemPrice = checkDiscountList.ElementAt(0).ItemToBuy.PriceEUR;
-                    var itemsWithOriginalPrice = checkDiscountList.ElementAt(0).NrOfItems - nextAmountOfItemsChecker;
-                    amount += itemsWithOriginalPrice*itemPrice;
-                    checkDiscountList.ElementAt(0).NrOfItems -= itemsWithOriginalPrice;
-                }
-                if (checkDiscountList.Count == 0)
+                if (checkDiscountList.Count <= 0)
                 {
                     listHasItems = false;
-                    break;
                 }
             }
             return amount;

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NUnit.Framework;
 using FluentAssertions;
 using HPKata.Calculator;
@@ -23,6 +20,7 @@ namespace HPKata.Tests
         private DiscountRuleThreeDifferentBooks _discountRuleThree;
         private DiscountRuleFourDifferentBooks _discountRuleFour;
         private DiscountRuleFiveDifferentBooks _discountRuleFive;
+        private DiscountRuleNoDiscount _noDiscount;
         private IEnumerable<PurchaseItem> _itemListWithDuplicates;
         private IEnumerable<PurchaseItem> _itemListWithEmptyRows;
         private IEnumerable<IDiscountRule> _allDiscountRules;
@@ -39,7 +37,8 @@ namespace HPKata.Tests
             _discountRuleThree = new DiscountRuleThreeDifferentBooks();
             _discountRuleFour = new DiscountRuleFourDifferentBooks();
             _discountRuleFive = new DiscountRuleFiveDifferentBooks();
-            _allDiscountRules = new List<IDiscountRule> { _discountRuleFive, _discountRuleFour, _discountRuleThree, _discountRuleTwo }.OrderBy(x => x.Order);
+            _noDiscount = new DiscountRuleNoDiscount();
+            _allDiscountRules = new List<IDiscountRule> { _discountRuleFive, _discountRuleFour, _discountRuleThree, _discountRuleTwo, _noDiscount }.OrderBy(x => x.Order);
             _itemListWithDuplicates = new List<PurchaseItem> { new PurchaseItem(_bookOne, 1), new PurchaseItem(_bookThree, 0), new PurchaseItem(_bookOne, 1), new PurchaseItem(_bookTwo, 1), new PurchaseItem(_bookFour, 1), new PurchaseItem(_bookTwo, 1), new PurchaseItem(_bookTwo, 1) };
             _itemListWithEmptyRows = new List<PurchaseItem> { new PurchaseItem(_bookOne, 0),  new PurchaseItem(_bookTwo, 1), new PurchaseItem(_bookFour, 1)};
         }
@@ -67,6 +66,24 @@ namespace HPKata.Tests
             var totCostForDiscount4 = (8*0.8m)*8;
             var totCostForDiscount2 = (8*0.95m)*2;
             _calculator.CalculatedAmount.Should().Be(totCostForDiscount2+totCostForDiscount4);
+        }
+
+        [Test]
+        public void Should_handle_all_discounts_in_one_purchase()
+        {
+            var purchase =
+                     new Purchase(new List<PurchaseItem> { new PurchaseItem(_bookOne, 2), new PurchaseItem(_bookTwo, 3),
+                         new PurchaseItem(_bookThree, 4), new PurchaseItem(_bookFour, 5),new PurchaseItem(_bookFive, 6) });
+            _calculator = new DiscountCalculator(purchase, _allDiscountRules);
+            var totCostDiscount5= (8*0.75m)*10;
+            var totCostDiscount4= (8 * 0.8m) * 4;
+            var totCostDiscount3=(8 * 0.9m) * 3;
+            var totCostDiscount2=(8 * 0.95m) * 2;
+            var totCostDiscount1= 8;
+            var totalAmount = totCostDiscount1 + totCostDiscount2 + totCostDiscount3 + totCostDiscount4 +
+                              totCostDiscount5;
+            _calculator.CalculatedAmount.Should().Be(totalAmount);
+
         }
     }
 }

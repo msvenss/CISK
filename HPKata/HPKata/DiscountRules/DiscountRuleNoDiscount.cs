@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
+
 
 namespace HPKata.DiscountRules
 {
@@ -11,8 +8,8 @@ namespace HPKata.DiscountRules
        public decimal DiscountPercent => 0.0m;
        public bool CanBeUsed(Purchase purchase)
        {
-           return purchase.ItemRows.Count() <= 1;
-        }
+           return true;
+       }
 
        public int Order => 100;
    }

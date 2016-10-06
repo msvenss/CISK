@@ -3,3 +3,8 @@ C:\dev\CISK\HPKata\bin\Debug\HPKata.pdb
 C:\dev\CISK\HPKata\obj\Debug\HPKata.dll
 C:\dev\CISK\HPKata\obj\Debug\HPKata.pdb
 C:\dev\CISK\HPKata\obj\Debug\HPKata.csprojResolveAssemblyReference.cache
+C:\dev\CISK\HPKata\HPKata\bin\Debug\HPKata.dll
+C:\dev\CISK\HPKata\HPKata\bin\Debug\HPKata.pdb
+C:\dev\CISK\HPKata\HPKata\obj\Debug\HPKata.csprojResolveAssemblyReference.cache
+C:\dev\CISK\HPKata\HPKata\obj\Debug\HPKata.dll
+C:\dev\CISK\HPKata\HPKata\obj\Debug\HPKata.pdb
