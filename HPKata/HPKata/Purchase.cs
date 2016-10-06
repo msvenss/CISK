@@ -16,18 +16,15 @@ namespace HPKata
         {
             var newGroupedItemList = new List<PurchaseItem>();
 
-          var checkingList = itemRows.GroupBy(x => x.ItemToBuy.Title).ToList();
+            var checkingList = itemRows.GroupBy(x => x.ItemToBuy.Title).ToList();
 
             if (checkingList.Any(x => x.Count() > 1))
             {
-                foreach (var row in checkingList)
-                {
-                    var book = row.First().ItemToBuy;
-                    var totNrOfItems = row.Sum(nrOfItems => nrOfItems.NrOfItems);
-                    if (totNrOfItems <= 0) continue;
-                    var itemToAdd = new PurchaseItem(book,totNrOfItems);
-                    newGroupedItemList.Add(itemToAdd);
-                }
+                newGroupedItemList.AddRange(from row in checkingList
+                                            let book = row.First().ItemToBuy
+                                            let totNrOfItems = row.Sum(nrOfItems => nrOfItems.NrOfItems)
+                                            where totNrOfItems > 0
+                                            select new PurchaseItem(book, totNrOfItems));
                 return newGroupedItemList;
             }
             else
@@ -35,11 +32,10 @@ namespace HPKata
                 var result = itemRows.ToList();
                 if (itemRows.Any(x => x.NrOfItems == 0))
                 {
-                   result.RemoveAll(x => x.NrOfItems == 0);
+                    result.RemoveAll(x => x.NrOfItems == 0);
                 }
                 return result;
             }
-            
         }
     }
 }

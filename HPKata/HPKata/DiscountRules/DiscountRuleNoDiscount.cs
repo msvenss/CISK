@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 
-
 namespace HPKata.DiscountRules
 {
    public class DiscountRuleNoDiscount :IDiscountRule
@@ -10,7 +9,6 @@ namespace HPKata.DiscountRules
        {
            return true;
        }
-
-       public int Order => 100;
+    public int Order => 100;
    }
 }
