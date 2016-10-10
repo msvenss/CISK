@@ -1,0 +1,10 @@
+C:\dev\CISK\AdvOfCode5\bin\Debug\AdvOfCode5.dll
+C:\dev\CISK\AdvOfCode5\bin\Debug\AdvOfCode5.pdb
+C:\dev\CISK\AdvOfCode5\obj\Debug\AdvOfCode5.csprojResolveAssemblyReference.cache
+C:\dev\CISK\AdvOfCode5\obj\Debug\AdvOfCode5.dll
+C:\dev\CISK\AdvOfCode5\obj\Debug\AdvOfCode5.pdb
+C:\dev\CISK\AdventOfCodeDay5\AdvOfCode5\bin\Debug\AdvOfCode5.dll
+C:\dev\CISK\AdventOfCodeDay5\AdvOfCode5\bin\Debug\AdvOfCode5.pdb
+C:\dev\CISK\AdventOfCodeDay5\AdvOfCode5\obj\Debug\AdvOfCode5.dll
+C:\dev\CISK\AdventOfCodeDay5\AdvOfCode5\obj\Debug\AdvOfCode5.pdb
+C:\dev\CISK\AdventOfCodeDay5\AdvOfCode5\obj\Debug\AdvOfCode5.csprojResolveAssemblyReference.cache
