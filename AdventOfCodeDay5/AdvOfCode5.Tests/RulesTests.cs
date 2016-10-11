@@ -13,11 +13,6 @@ namespace AdvOfCode5.Tests
     public class RulesTests
     {
         private INiceRule _rule;
-        [SetUp]
-        public void SetUp()
-        {
-            
-        }
 
         [Test]
         public void Two_letters_in_a_row_should_be_allowed_as_substring_in_rule()
@@ -46,7 +41,7 @@ namespace AdvOfCode5.Tests
         public void Not_having_three_vowels_should_not_allow_nice_string()
         {
             _rule = new NiceStringRuleThreeVowles();
-            _rule.SubStringIsAllowed("hgggrre").Should().BeFalse();
+            _rule.SubStringIsAllowed("bb").Should().BeFalse();
         }
 
         [Test]

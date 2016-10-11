@@ -21,17 +21,21 @@ namespace AdvOfCode5
 
         public bool CheckIfStringIsNice()
         {
-                var iAmNice = true;
+                var iAmNice = false;
+            if (_rules != null) {
+                iAmNice = true;
                 foreach (var rule in _rules)
                 {
-                   
-                if (rule.SubStringIsAllowed(_stringToCheck) == false)
+
+                    iAmNice = rule.SubStringIsAllowed(_stringToCheck);
+                if (iAmNice == false)
                 {
-                    iAmNice = false;
+                  
                     break;
                 }
             }
-                return iAmNice;
+            }
+            return iAmNice;
         }
     }
 }
